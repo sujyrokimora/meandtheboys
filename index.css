@@ -1,0 +1,168 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #222222;
+}
+
+.display {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #3F3F2E;
+    padding: 2em;
+    color: #8EF5DE;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 18px;
+    line-height: 1.5;
+    filter: blur(0.125px);
+    text-shadow: 0 1px 10px #8ef5de;
+    text-shadow: 0 1px 5px white;
+    box-shadow: 0 0 200px rgba(0, 0, 0, 0.7) inset;
+}
+
+/* Screen Light Bleed */
+.display::before, .display::after {
+    content: "";
+    width: 1px;
+    height: 55vh;
+    box-shadow: 0px 0px 200px 30px #8EF5DE;
+    position: absolute;
+    bottom: 10vh;
+}
+
+.display::before {
+    left: 0;
+}
+
+.display::after {
+    right: 0;
+}
+
+@keyframes scanlines {
+    from {
+        background-position: 0 -100%;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+@keyframes flicker {
+    0% {
+        opacity: 0.7212502369;
+    }
+    5% {
+        opacity: 0.6208682986;
+    }
+    10% {
+        opacity: 0.28735774;
+    }
+    15% {
+        opacity: 0.6888827566;
+    }
+    20% {
+        opacity: 0.8725431145;
+    }
+    25% {
+        opacity: 0.6933530413;
+    }
+    30% {
+        opacity: 0.9742741097;
+    }
+    35% {
+        opacity: 0.0054706677;
+    }
+    40% {
+        opacity: 0.9263216356;
+    }
+    45% {
+        opacity: 0.9214129484;
+    }
+    50% {
+        opacity: 0.4638183641;
+    }
+    55% {
+        opacity: 0.4603583703;
+    }
+    60% {
+        opacity: 0.0178000964;
+    }
+    65% {
+        opacity: 0.1952290836;
+    }
+    70% {
+        opacity: 0.0500982076;
+    }
+    75% {
+        opacity: 0.6610184405;
+    }
+    80% {
+        opacity: 0.4240164503;
+    }
+    85% {
+        opacity: 0.3680145273;
+    }
+    90% {
+        opacity: 0.7034301193;
+    }
+    95% {
+        opacity: 0.9947015143;
+    }
+    100% {
+        opacity: 0.6321169042;
+    }
+}
+.typewriter {
+    display: inline-block;
+    font-size: 1.25em;
+    letter-spacing: 2px;
+}
+
+.typewriter::after {
+    position: relative;
+    display: inline-block;
+    content: "";
+    width: 0.45em;
+    height: 0.85em;
+    background-color: #8EF5DE;
+    margin-left: 1em;
+    animation: blink 1.25s infinite;
+    box-shadow: 0 1px 10px #8ef5de;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+textarea {
+    background-color: transparent;
+    color: #8EF5DE;
+    font-size: 18px;
+}
+
+.scanline-overlay {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.05), transparent);
+    background-size: 100% 10px;
+    position: absolute;
+    animation: scanlines 20s infinite;
+    animation: flicker 0.1s infinite;
+    top: 0;
+    left: 0;
+}
